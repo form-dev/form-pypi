@@ -1,6 +1,6 @@
 [project]
 name = "form-bin"
-version = "5.0.0a1"
+version = "5.0.0a2"
 description = "The FORM project for symbolic manipulation of very big expressions"
 readme = "README.md"
 license = "GPL-3.0-or-later"
@@ -19,4 +19,5 @@ requires = ["enscons~=0.26", "toml~=0.10", "packaging>=20.5"]
 build-backend = "enscons.api"
 
 [project.scripts]
-form = "form.__main__:main"
+"form" = "form.__main__:main"
+"form-bin" = "form.__main__:main"
