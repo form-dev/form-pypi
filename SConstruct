@@ -29,6 +29,7 @@ env.Precious(hepware)
 env.Precious(hepware_form)
 
 files = [
+    File("form-packages/README.md"),
     File("form/__main__.py"),
     env.Command(
         f"form/tform",
