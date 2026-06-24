@@ -30,9 +30,10 @@ env.Precious(hepware_form)
 
 files = [
     File("form-packages/README.md"),
+    File("form/__init__.py"),
     File("form/__main__.py"),
     env.Command(
-        f"form/tform",
+        "form/tform",
         [hepware_form],
         ["cp hepware/bin/form form/tform", "strip form/tform"],
     ),
@@ -41,4 +42,10 @@ files = [
 platformlib = env.Whl("platlib", files, root="")
 bdist = env.WhlFile(source=platformlib)
 
-env.Alias("dist", bdist)
+# FindSourceFiles() will list every source file of every target
+# defined so far.
+sdist = env.SDist(source=FindSourceFiles())
+
+env.Alias("dist", sdist + bdist)
+env.Alias("bdist", bdist)
+env.Alias("sdist", sdist)
