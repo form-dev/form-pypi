@@ -1,9 +1,14 @@
 __all__ = ("form_command", "form")
 
 import os
-import subprocess
 
 def _form_cmd() -> list[str]:
+    """
+    Determine the path and the needed set of arguments to call
+    the form binary. Make sure the include paths are set up so
+    that form packages installed into the Python environment are
+    found.
+    """
     this_dir = os.path.abspath(os.path.dirname(__file__))
     packages = os.path.join(os.path.dirname(this_dir), "form-packages")
     if not packages.endswith(os.path.sep):
@@ -16,6 +21,9 @@ def _form_cmd() -> list[str]:
 
 def form(*args: tuple[str]) -> None:
     """Run the form binary with the given arguments."""
+    import subprocess
     subprocess.check_call(form_command + list(args))
 
-form_command: str = _form_cmd()
+# This is the path and the needed set of arguments to call the
+# form binary.
+form_command: list[str] = _form_cmd()
