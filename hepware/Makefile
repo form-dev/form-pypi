@@ -60,7 +60,8 @@ mpfr.done: build/mpfr-${VER_mpfr}.tar.xz gmp.done
 		./configure \
 			--prefix="${DIR}" --libdir="${DIR}/lib" \
 			--includedir="${DIR}/include" --bindir="${DIR}/bin" \
-			--enable-static --disable-shared --enable-thread-safe
+			--enable-static --disable-shared --enable-thread-safe \
+			--with-gmp="${DIR}"
 	+${MAKE} -C build/mpfr-*/
 	+${MAKE} -C build/mpfr-*/ install
 	date >$@
@@ -82,7 +83,9 @@ flint.done: build/flint-${VER_flint}.tar.gz gmp.done mpfr.done
 	cd build/flint-*/ && \
 		./configure \
 			--prefix="${DIR}" --enable-static --disable-shared \
-			CC="${CC}" CXX="${CXX}" CFLAGS="${DEP_CFLAGS} -Wno-deprecated-declarations -Wmissing-prototypes -Wno-stringop-overflow -Wno-stringop-overread -Werror=implicit-function-declaration -Wall -std=c11 -pedantic -O3"
+			CC="${CC}" CXX="${CXX}" CFLAGS="${DEP_CFLAGS} -Wno-deprecated-declarations -Wmissing-prototypes -Wno-stringop-overflow -Wno-stringop-overread -Werror=implicit-function-declaration -Wall -std=c11 -pedantic -O3" \
+			--with-gmp="${DIR}" \
+			--with-mpfr="${DIR}"
 	+${MAKE} -C build/flint-*/ V=1
 	+${MAKE} -C build/flint-*/ install
 	date >$@
