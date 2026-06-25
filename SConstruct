@@ -27,12 +27,12 @@ hepware_form = env.Command(
 
 files = [
     File("form-packages/README.md"),
-    File("form/__init__.py"),
-    File("form/__main__.py"),
+    File("form_bin/__init__.py"),
+    File("form_bin/__main__.py"),
     env.Command(
-        "form/tform",
+        "form_bin/tform",
         [hepware_form],
-        ["cp hepware/bin/tform form/tform", "strip form/tform"],
+        ["cp hepware/bin/tform form_bin/tform", "strip form_bin/tform"],
     ),
 ]
 
