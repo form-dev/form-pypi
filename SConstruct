@@ -41,6 +41,7 @@ bdist = env.WhlFile(source=platformlib)
 
 # FindSourceFiles() will list every source file of every target
 # defined so far.
+File("PKG-INFO")
 sdist = env.SDist(source=FindSourceFiles())
 
 env.Alias("dist", sdist + bdist)
