@@ -33,7 +33,7 @@ repos:
         args: []
         types_or: [python, scons]
         additional_dependencies:
-          - packaging==26.2
+          - packaging==26.3
           - setuptools_scm==10.2.3
           - types-toml==0.10.8.20260518
 
