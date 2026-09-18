@@ -154,8 +154,8 @@ zlib.done: build/zlib-${VER_zlib}.tar.gz
 
 ## FORM
 
-VER_form = 5.0.1
-SHA256_form = ce62530a54e5232dfefb6c1ff0e7047372a43941b3c0e0db08b5714fd868722c
+VER_form = 5.0.2
+SHA256_form = 90a3fbc31a31de50a181e63ce222d0224642a5916fdbb25373913558a6d6921a
 
 build/form-${VER_form}.tar.gz: build/.dir
 	rm -f build/form*.tar.gz
