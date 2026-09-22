@@ -38,7 +38,7 @@ repos:
           - types-toml==0.10.8.20260518
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.29.3
+    rev: v2.29.4
     hooks:
       - id: pyproject-fmt
 
